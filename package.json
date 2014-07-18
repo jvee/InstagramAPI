@@ -1,0 +1,15 @@
+{
+  "name": "InstagramAPI",
+  "version": "0.0.0",
+  "description": "Instagram API node wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Instagram",
+    "API"
+  ],
+  "author": "jvee <jvee99@gmail.com>",
+  "license": "ISC"
+}
