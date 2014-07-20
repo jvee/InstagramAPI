@@ -2,7 +2,7 @@ var apiBridge = require('APIBridge');
 
 module.exports = apiBridge({
     name: 'Instagram',
-    base: 'http://api.instagram.com/v1/',
+    base: 'https://api.instagram.com/v1/',
     dataType: 'json',
     models: {
         locations: {
@@ -11,6 +11,12 @@ module.exports = apiBridge({
             recent: 'locations/:id/media/recent'
         }
     }
+});
+
+module.exports.locations.search({
+    lat: 48.858844,
+    lng: 2.294351,
+    client_id: '22aaafad8e8447cf883c2cbb55663de5'
 });
 
 /**
