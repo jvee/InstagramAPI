@@ -19,6 +19,16 @@ module.exports.locations.search({
     client_id: '22aaafad8e8447cf883c2cbb55663de5'
 });
 
+module.exports.locations.get({
+    id: 1,
+    client_id: '22aaafad8e8447cf883c2cbb55663de5'
+});
+
+module.exports.locations.recent({
+    id: 1,
+    client_id: '22aaafad8e8447cf883c2cbb55663de5'
+});
+
 /**
  * Ожидается на выходе:
  *
