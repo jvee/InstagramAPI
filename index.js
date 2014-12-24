@@ -1,32 +1,44 @@
 var apiBridge = require('APIBridge');
+var api;
 
-module.exports = apiBridge({
-    name: 'Instagram',
-    base: 'https://api.instagram.com/v1/',
-    dataType: 'json',
-    models: {
-        locations: {
-            search: 'locations/search',
-            get: 'locations/:id',
-            recent: 'locations/:id/media/recent'
+module.exports = api = apiBridge({
+
+    '.': {
+        data: {
+            client_id: '22aaafad8e8447cf883c2cbb55663de5'
+        },
+
+        prefilter: function (options) {
+            options.url = 'https://api.instagram.com/v1/' + options.url;
+        },
+
+        processResult: function (options, result) {
+            console.log('[DONE]: ' + options.url);
+
+            // cleaning result
+            // setting result = result.data
         }
-    }
+    },
+
+    '.locations': {}, // бага
+
+    '.locations.search': 'locations/search',
+    '.locations.get': 'locations/:id',
+    '.locations.recent': 'locations/:id/media/recent'
+
 });
 
-module.exports.locations.search({
+api.locations.search({
     lat: 48.858844,
-    lng: 2.294351,
-    client_id: '22aaafad8e8447cf883c2cbb55663de5'
+    lng: 2.294351
 });
 
-module.exports.locations.get({
-    id: 1,
-    client_id: '22aaafad8e8447cf883c2cbb55663de5'
+api.locations.get({
+    id: 1
 });
 
-module.exports.locations.recent({
-    id: 1,
-    client_id: '22aaafad8e8447cf883c2cbb55663de5'
+api.locations.recent({
+    id: 1
 });
 
 /**
